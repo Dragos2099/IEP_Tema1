@@ -12,8 +12,8 @@ public:
     PetrolCar(const PetrolCar& petrolCar);
     ~PetrolCar();
     void refuelTankByLiters(int liters);
-    PetrolCar& operator=(const PetrolCar& petrolCar);
     std::ostream& print(std::ostream& os);
+    PetrolCar& operator=(const PetrolCar& petrolCar) = delete;
 };
 
 #endif

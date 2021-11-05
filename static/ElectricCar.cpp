@@ -14,15 +14,15 @@ ElectricCar::ElectricCar(int horsePower, int nrSeats, std::string bodyStyle,
         battery_ = 100;
     }
 }
-
+/*
 ElectricCar::ElectricCar(const ElectricCar& electricCar):Car(electricCar)
 {
     battery_ = electricCar.battery_;
 }
-
+*/
 ElectricCar::~ElectricCar()
 {
-    std::cout << "\nDestructor ElectricCar\n";
+    //std::cout << "\nDestructor ElectricCar\n";
 }
 
 void ElectricCar::chargeBatteryByPercent(int percent)
@@ -36,7 +36,10 @@ void ElectricCar::chargeBatteryByPercent(int percent)
 
 ElectricCar& ElectricCar::operator=(const ElectricCar& electricCar)
 {
-    Car::operator=(electricCar);
+    horsePower_ = electricCar.horsePower_;
+    nrSeats_ = electricCar.nrSeats_;
+    bodyStyle_ = electricCar.bodyStyle_;
+    traction_ = electricCar.traction_;
     battery_ = electricCar.battery_;
     return *this;
 }

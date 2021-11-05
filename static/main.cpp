@@ -6,26 +6,24 @@
 
 int main()
 {
-    /*
-    Car car1(100, 5, "Berlina", "FWD");
-    Car car2(car1);
-    Car car3;
-    std::cout << car1 << car2 << car3;
-    car3 = car2;
-    */
-    //std::unique_ptr<Car> car1 = (std::unique_ptr<Car>) new Car();
-    //car1->refuelTankByLiters(100);
-    //std::cout << car1->getBodyStyle() << "\nda\n";
     
-    //ElectricCar car1 = ElectricCar(100, 5, "Berlina", "FWD", 100);
-    //ElectricCar car2(car1);
-    //ElectricCar car3;
-    //car3 = car2;
-    //std::cout << car1 << car2 << car3;
-    auto *ceva = new HybridCar();
-    ceva->refuelTankByLiters(20);
-    ceva->chargeBatteryByPercent(65);
-    std::cout << (*ceva);
-    //free(ceva);
+    HybridCar hybridCar1(100, 5, "Berlina", "FWD", 100, 60, 45);
+    //HybridCar hybridCar2(hybridCar1);
+    HybridCar hybridCar3;
+    //hybridCar3 = hybridCar2;
+    
+
+    
+    PetrolCar petrolCar1(100, 5, "Berlina", "FWD", 60, 45);
+    PetrolCar petrolCar2(petrolCar1);
+    PetrolCar petrolCar3;
+    //petrolCar3 = petrolCar2;
+    
+
+    
+    ElectricCar electricCar1(100, 5, "Berlina", "FWD", 100);
+    //ElectricCar electricCar2(electricCar1);
+    ElectricCar electricCar3;
+    electricCar3 = electricCar1;
     
 }

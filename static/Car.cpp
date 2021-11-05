@@ -26,7 +26,7 @@ Car::Car(const Car& car)
 
 Car::~Car()
 {
-    std::cout << "\nDestructor Car\n";
+    //std::cout << "\nDestructor Car\n";
 }
 
 int Car::getHorsePower()
@@ -47,16 +47,6 @@ std::string Car::getBodyStyle()
 std::string Car::getTraction()
 {
     return traction_;
-}
-
-Car& Car::operator=(const Car& car)
-{
-    std::cout << "\nAssign Operator\n";
-    horsePower_ = car.horsePower_;
-    nrSeats_ = car.nrSeats_;
-    bodyStyle_ = car.bodyStyle_;
-    traction_ = car.traction_;
-    return *this;
 }
 
 std::ostream& Car::print(std::ostream& os)

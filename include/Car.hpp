@@ -8,7 +8,7 @@ class Car
 public:
     Car();
     Car(int horsePower, int nrSeats, std::string bodyStyle, std::string traction);
-    Car(const Car& car) = delete;
+    Car(const Car& car);
     ~Car();
     int getHorsePower();
     int getNrSeats();

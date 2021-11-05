@@ -24,17 +24,17 @@ HybridCar::HybridCar(int horsePower, int nrSeats, std::string bodyStyle,
         battery_ = 100;
     }
 }
-
+/*
 HybridCar::HybridCar(const HybridCar& hybridCar):Car(hybridCar)
 {
     tank_ = hybridCar.tank_;
     tankSize_ = hybridCar.tankSize_;
     battery_ = hybridCar.battery_;
 }
-
+*/
 HybridCar::~HybridCar()
 {
-    std::cout << "\nDestructor HybridCar\n";
+    //std::cout << "\nDestructor HybridCar\n";
 }
 
 void HybridCar::refuelTankByLiters(int liters)
@@ -54,16 +54,19 @@ void HybridCar::chargeBatteryByPercent(int percent)
         battery_ = 100;
     }
 }
-
+/*
 HybridCar& HybridCar::operator=(const HybridCar& hybridCar)
 {
-    Car::operator=(hybridCar);
+    horsePower_ = hybridCar.horsePower_;
+    nrSeats_ = hybridCar.nrSeats_;
+    bodyStyle_ = hybridCar.bodyStyle_;
+    traction_ = hybridCar.traction_;
     tank_ = hybridCar.tank_;
     tankSize_ = hybridCar.tankSize_;
     battery_ = hybridCar.battery_;
     return *this;
 }
-
+*/
 std::ostream& HybridCar::print(std::ostream& os)
 {
      return Car::print(os) << "[Tank] : [" << tank_ << "]\n"

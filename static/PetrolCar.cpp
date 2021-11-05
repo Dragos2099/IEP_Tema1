@@ -25,7 +25,7 @@ PetrolCar::PetrolCar(const PetrolCar& petrolCar):Car(petrolCar)
 
 PetrolCar::~PetrolCar()
 {
-    std::cout << "\nDestructor PetrolCar\n";
+    //std::cout << "\nDestructor PetrolCar\n";
 }
 
 void PetrolCar::refuelTankByLiters(int liters)
@@ -36,15 +36,18 @@ void PetrolCar::refuelTankByLiters(int liters)
         tank_ = tankSize_;
     }
 }
-
+/*
 PetrolCar& PetrolCar::operator=(const PetrolCar& petrolCar)
 {
-    Car::operator=(petrolCar);
+    horsePower_ = petrolCar.horsePower_;
+    nrSeats_ = petrolCar.nrSeats_;
+    bodyStyle_ = petrolCar.bodyStyle_;
+    traction_ = petrolCar.traction_;
     tank_ = petrolCar.tank_;
     tankSize_ = petrolCar.tankSize_;
     return *this;
 }
-
+*/
 std::ostream& PetrolCar::print(std::ostream& os)
 {
      return Car::print(os) << "[Tank] : [" << tank_ << "]\n"
