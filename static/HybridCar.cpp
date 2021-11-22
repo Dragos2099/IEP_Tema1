@@ -8,11 +8,11 @@ HybridCar::HybridCar():Car()
 }
 
 HybridCar::HybridCar(int horsePower, int nrSeats, std::string bodyStyle, 
-                    std::string traction, int battery, int tankSize, int tank)
-                    :Car(horsePower, nrSeats, bodyStyle, traction)
+                    std::string traction, int *vin, int battery, int tankSize, int tank)
+                    :Car(horsePower, nrSeats, bodyStyle, traction, vin)
 {
     tank_ = tank;
-    tankSize_ = tankSize_;
+    tankSize_ = tankSize;
     if(tank_ > tankSize_)
     {
         tank_ = tankSize_;
@@ -24,14 +24,14 @@ HybridCar::HybridCar(int horsePower, int nrSeats, std::string bodyStyle,
         battery_ = 100;
     }
 }
-/*
+
 HybridCar::HybridCar(const HybridCar& hybridCar):Car(hybridCar)
 {
     tank_ = hybridCar.tank_;
     tankSize_ = hybridCar.tankSize_;
     battery_ = hybridCar.battery_;
 }
-*/
+
 HybridCar::~HybridCar()
 {
     //std::cout << "\nDestructor HybridCar\n";
@@ -54,19 +54,16 @@ void HybridCar::chargeBatteryByPercent(int percent)
         battery_ = 100;
     }
 }
-/*
+
 HybridCar& HybridCar::operator=(const HybridCar& hybridCar)
 {
-    horsePower_ = hybridCar.horsePower_;
-    nrSeats_ = hybridCar.nrSeats_;
-    bodyStyle_ = hybridCar.bodyStyle_;
-    traction_ = hybridCar.traction_;
+    Car::operator=(hybridCar);
     tank_ = hybridCar.tank_;
     tankSize_ = hybridCar.tankSize_;
     battery_ = hybridCar.battery_;
     return *this;
 }
-*/
+
 std::ostream& HybridCar::print(std::ostream& os)
 {
      return Car::print(os) << "[Tank] : [" << tank_ << "]\n"

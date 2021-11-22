@@ -7,10 +7,10 @@ PetrolCar::PetrolCar():Car()
 }
 
 PetrolCar::PetrolCar(int horsePower, int nrSeats, std::string bodyStyle,
-                         std::string traction, int tankSize, int tank):Car(horsePower, nrSeats, bodyStyle, traction)
+                         std::string traction, int *vin, int tankSize, int tank):Car(horsePower, nrSeats, bodyStyle, traction, vin)
 {
     tank_ = tank;
-    tankSize_ = tankSize_;
+    tankSize_ = tankSize;
     if(tank_ > tankSize_)
     {
         tank_ = tankSize_;
@@ -36,18 +36,15 @@ void PetrolCar::refuelTankByLiters(int liters)
         tank_ = tankSize_;
     }
 }
-/*
+
 PetrolCar& PetrolCar::operator=(const PetrolCar& petrolCar)
 {
-    horsePower_ = petrolCar.horsePower_;
-    nrSeats_ = petrolCar.nrSeats_;
-    bodyStyle_ = petrolCar.bodyStyle_;
-    traction_ = petrolCar.traction_;
+    Car::operator=(petrolCar);
     tank_ = petrolCar.tank_;
     tankSize_ = petrolCar.tankSize_;
     return *this;
 }
-*/
+
 std::ostream& PetrolCar::print(std::ostream& os)
 {
      return Car::print(os) << "[Tank] : [" << tank_ << "]\n"
