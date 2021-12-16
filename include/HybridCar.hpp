@@ -9,12 +9,12 @@ class HybridCar : public Car, public Petrol, public Electric
 {
 public:
     HybridCar();
-    HybridCar(int horsePower, int nrSeats, std::string bodyStyle, std::string traction, int *vin, int battery, int tankSize, int tank);
-    HybridCar(const HybridCar& hybridCar);
+    HybridCar(std::shared_ptr<std::string> location, int horsePower, int nrSeats, std::string bodyStyle, std::string traction, std::string vin, int battery, int tankSize, int tank);
+    HybridCar(HybridCar& hybridCar);
     ~HybridCar();
     void refuelTankByLiters(int liters);
     void chargeBatteryByPercent(int percent);
-    HybridCar& operator=(const HybridCar& hybridCar);
+    HybridCar& operator=( HybridCar& hybridCar);
     std::ostream& print(std::ostream& os);
 };
 

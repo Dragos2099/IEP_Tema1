@@ -6,8 +6,8 @@ PetrolCar::PetrolCar():Car()
     tankSize_ = 45;
 }
 
-PetrolCar::PetrolCar(int horsePower, int nrSeats, std::string bodyStyle,
-                         std::string traction, int *vin, int tankSize, int tank):Car(horsePower, nrSeats, bodyStyle, traction, vin)
+PetrolCar::PetrolCar(std::shared_ptr<std::string> location, int horsePower, int nrSeats, std::string bodyStyle,
+                         std::string traction, std::string vin, int tankSize, int tank):Car(location, horsePower, nrSeats, bodyStyle, traction, vin)
 {
     tank_ = tank;
     tankSize_ = tankSize;
@@ -17,7 +17,7 @@ PetrolCar::PetrolCar(int horsePower, int nrSeats, std::string bodyStyle,
     }
 }
 
-PetrolCar::PetrolCar(const PetrolCar& petrolCar):Car(petrolCar)
+PetrolCar::PetrolCar(PetrolCar& petrolCar):Car(petrolCar)
 {
     tank_ = petrolCar.tank_;
     tankSize_ = petrolCar.tankSize_;
@@ -37,7 +37,7 @@ void PetrolCar::refuelTankByLiters(int liters)
     }
 }
 
-PetrolCar& PetrolCar::operator=(const PetrolCar& petrolCar)
+PetrolCar& PetrolCar::operator=( PetrolCar& petrolCar)
 {
     Car::operator=(petrolCar);
     tank_ = petrolCar.tank_;

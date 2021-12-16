@@ -8,11 +8,11 @@ class ElectricCar : public Car, public Electric
 {
 public:
     ElectricCar();
-    ElectricCar(int horsePower, int nrSeats, std::string bodyStyle, std::string traction, int *vin, int battery);
-    ElectricCar(const ElectricCar& electricCar);
+    ElectricCar(std::shared_ptr<std::string> location, int horsePower, int nrSeats, std::string bodyStyle, std::string traction, std::string vin, int battery);
+    ElectricCar(ElectricCar& electricCar);
     ~ElectricCar();
     void chargeBatteryByPercent(int percent);
-    ElectricCar& operator=(const ElectricCar& electricCar);
+    ElectricCar& operator=( ElectricCar& electricCar);
     std::ostream& print(std::ostream& os);
 };
 

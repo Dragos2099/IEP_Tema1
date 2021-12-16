@@ -7,9 +7,9 @@ HybridCar::HybridCar():Car()
     battery_ = 0;
 }
 
-HybridCar::HybridCar(int horsePower, int nrSeats, std::string bodyStyle, 
-                    std::string traction, int *vin, int battery, int tankSize, int tank)
-                    :Car(horsePower, nrSeats, bodyStyle, traction, vin)
+HybridCar::HybridCar(std::shared_ptr<std::string> location, int horsePower, int nrSeats, std::string bodyStyle, 
+                    std::string traction, std::string vin, int battery, int tankSize, int tank)
+                    :Car(location, horsePower, nrSeats, bodyStyle, traction, vin)
 {
     tank_ = tank;
     tankSize_ = tankSize;
@@ -25,7 +25,7 @@ HybridCar::HybridCar(int horsePower, int nrSeats, std::string bodyStyle,
     }
 }
 
-HybridCar::HybridCar(const HybridCar& hybridCar):Car(hybridCar)
+HybridCar::HybridCar(HybridCar& hybridCar):Car(hybridCar)
 {
     tank_ = hybridCar.tank_;
     tankSize_ = hybridCar.tankSize_;
@@ -55,7 +55,7 @@ void HybridCar::chargeBatteryByPercent(int percent)
     }
 }
 
-HybridCar& HybridCar::operator=(const HybridCar& hybridCar)
+HybridCar& HybridCar::operator=( HybridCar& hybridCar)
 {
     Car::operator=(hybridCar);
     tank_ = hybridCar.tank_;

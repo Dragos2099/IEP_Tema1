@@ -10,7 +10,7 @@ if(CMAKE_VERSION GREATER "3.1.2")
     set(CMAKE_CXX_EXTENSIONS OFF)
 else()
     if(CMAKE_COMPILER_IS_GNUCXX)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread")
     endif()    
 endif()
 
@@ -19,13 +19,15 @@ set(myfiles
     static/ElectricCar.cpp include/ElectricCar.hpp 
     static/PetrolCar.cpp include/PetrolCar.hpp 
     static/HybridCar.cpp include/HybridCar.hpp
-    include/Electric.hpp include/Petrol.hpp)
+    include/Electric.hpp include/Petrol.hpp
+    static/Vin.cpp include/Vin.hpp
+    static/Lock.cpp include/Lock.hpp)
 
 add_library(lib STATIC ${myfiles})    
 
 add_executable(${PROJECT_NAME} static/main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC lib)
+target_link_libraries(${PROJECT_NAME} PUBLIC lib pthread)
 
 target_include_directories(${PROJECT_NAME} 
  PRIVATE static INTERFACE

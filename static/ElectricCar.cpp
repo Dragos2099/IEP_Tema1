@@ -5,8 +5,8 @@ ElectricCar::ElectricCar():Car()
     battery_ = 0;
 }
 
-ElectricCar::ElectricCar(int horsePower, int nrSeats, std::string bodyStyle,
-                         std::string traction, int *vin, int battery):Car(horsePower, nrSeats, bodyStyle, traction, vin)
+ElectricCar::ElectricCar(std::shared_ptr<std::string> location, int horsePower, int nrSeats, std::string bodyStyle,
+                         std::string traction, std::string vin, int battery):Car(location, horsePower, nrSeats, bodyStyle, traction, vin)
 {
     battery_ = battery;
     if(battery_ > 100)
@@ -15,7 +15,7 @@ ElectricCar::ElectricCar(int horsePower, int nrSeats, std::string bodyStyle,
     }
 }
 
-ElectricCar::ElectricCar(const ElectricCar& electricCar):Car(electricCar)
+ElectricCar::ElectricCar(ElectricCar& electricCar):Car(electricCar)
 {
     battery_ = electricCar.battery_;
 }
@@ -33,7 +33,7 @@ void ElectricCar::chargeBatteryByPercent(int percent)
     }
 }
 
-ElectricCar& ElectricCar::operator=(const ElectricCar& electricCar)
+ElectricCar& ElectricCar::operator=( ElectricCar& electricCar)
 {
     Car::operator=(electricCar);
     battery_ = electricCar.battery_;
